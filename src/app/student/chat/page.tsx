@@ -153,18 +153,22 @@ export default function StudentChatPage() {
   }, [activePresetId, activeType]);
 
   const fetchData = async () => {
+    const token = localStorage.getItem("token");
+    // 1) 先拉课堂列表并立即渲染（接口已瘦身，体积小、响应快）
     try {
-      const token = localStorage.getItem("token");
-      const [tasksRes, convsRes] = await Promise.all([
-        fetch("/api/student/tasks", { headers: { Authorization: `Bearer ${token}` } }),
-        fetch("/api/conversations", { headers: { Authorization: `Bearer ${token}` } }),
-      ]);
+      const tasksRes = await fetch("/api/student/tasks", { headers: { Authorization: `Bearer ${token}` } });
       if (tasksRes.ok) setTasks(await tasksRes.json());
+    } catch {
+      console.error("加载课堂失败");
+    } finally {
+      setLoadingData(false); // 列表先出来，不再等对话记录
+    }
+    // 2) 对话记录后台异步补充（仅影响"已学"标记，不阻塞列表渲染）
+    try {
+      const convsRes = await fetch("/api/conversations", { headers: { Authorization: `Bearer ${token}` } });
       if (convsRes.ok) setConversations(await convsRes.json());
     } catch {
-      console.error("加载数据失败");
-    } finally {
-      setLoadingData(false);
+      console.error("加载对话记录失败");
     }
   };
 
@@ -307,11 +311,23 @@ export default function StudentChatPage() {
     const exp = tasks
       .flatMap(t => t.subProjects.flatMap(sp => sp.explorations || []))
       .find(e => e.id === explorationId);
+    const [html, setHtml] = useState<string>("");
+    useEffect(() => {
+      let cancelled = false;
+      setHtml("");
+      const tk = localStorage.getItem("token");
+      if (!tk) return;
+      fetch(`/api/student/explorations/${explorationId}`, { headers: { Authorization: `Bearer ${tk}` } })
+        .then((r) => (r.ok ? r.json() : null))
+        .then((d) => { if (!cancelled && d && typeof d.htmlContent === "string") setHtml(d.htmlContent); })
+        .catch(() => {});
+      return () => { cancelled = true; };
+    }, [explorationId]);
     if (!exp) return null;
     return (
       <ExplorationPanel
         explorationId={exp.id}
-        htmlContent={exp.htmlContent || ""}
+        htmlContent={html}
         enableSubmissionEnabled={exp.enableSubmission}
         enableAiCompanion={exp.enableAiCompanion}
         onBack={onBack}
