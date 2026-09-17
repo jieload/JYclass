@@ -71,12 +71,6 @@ export default function TeacherLayout({
       label: "模板设置",
     },
     {
-      key: "http://www.maoyouhui.org",
-      icon: <Icon.LinkIcon />,
-      label: "资源广场",
-      external: true,
-    },
-    {
       key: "/teacher/settings",
       icon: <Icon.SettingIcon />,
       label: "系统设置",
@@ -100,7 +94,7 @@ export default function TeacherLayout({
         <div className="p-4 border-b border-gray-200 flex flex-col gap-1">
           {!sidebarCollapsed && (
             <>
-              <h2 className="text-lg font-bold text-[#0052D9]">QuickClass Agent</h2>
+              <h2 className="text-lg font-bold text-[#0052D9]">建邺智课</h2>
             </>
           )}
           <button
@@ -114,7 +108,7 @@ export default function TeacherLayout({
         {!sidebarCollapsed && (
         <Menu
           theme="light"
-          value={showExternal ? "http://www.maoyouhui.org" : pathname}
+          value={pathname}
           onChange={(v) => handleMenuChange(v as string)}
           style={{ width: '100%', border: 'none' }}
           className="teacher-menu"

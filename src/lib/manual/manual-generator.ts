@@ -2,12 +2,12 @@
  * 教学手册生成器（移植自 quickclass-lesson-converter skill 的 generate_lesson_guide.py）
  *
  * 依据课堂 JSON 中实际配置的四类活动（对话 / 探究 / 作业 / 项目）逐条生成教学流程，
- * 并给出每个活动在 QuickClass 上的操作指引，形成一份可照着上课的教师指南。
+ * 并给出每个活动在 建邺智课 上的操作指引，形成一份可照着上课的教师指南。
  *
  * 手册结构：
  *  封面（教师 · 单位 / 年级 · 学科 · 来源）
  *  一、教学目标（一节式：N. 素养名称，具体目标描述）
- *  二、教学活动（活动目标 / 活动内容 / 教师指导 / 学生反馈应对 / QuickClass操作指导 + 活动间过渡语）
+ *  二、教学活动（活动目标 / 活动内容 / 教师指导 / 学生反馈应对 / 建邺智课操作指导 + 活动间过渡语）
  *  三、课堂作业设计（逐题内容）
  *  四、教学反思（教师自我评价与记录框架）
  *  五、备用活动（超出 30 分钟活动限时被移出的活动）
@@ -247,7 +247,7 @@ const STAGE_GUIDE: Record<string, StageGuideItem> = {
 
 const DEFAULT_STAGE_GUIDE = STAGE_GUIDE["新授"];
 
-// 对话活动：QuickClass 操作要点按教学阶段差异化
+// 对话活动：建邺智课 操作要点按教学阶段差异化
 const CONV_OPERATIONS: Record<string, string> = {
   导入:
     "① 在平台创建对话活动，引导提示词侧重让学生说出自己已有的经验与疑问；\n② 设置学生个人分析与全班分析模板；\n③ 学生登录后按提示词自由发言，气氛轻松些；\n④ 教师端查看个人报告与全班观点分布，捕捉学生前概念与困惑，记下作为新授切入点。",
@@ -1251,7 +1251,7 @@ export async function generateManualDocx(
     addMultilineBody("【学生反馈应对】", activity.feedback, COLOR_ACCENT);
 
     if (activity.quickclass_guide) {
-      addOperationsBlock("▶ 操作要点（QuickClass）", activity.quickclass_guide);
+      addOperationsBlock("▶ 操作要点（建邺智课）", activity.quickclass_guide);
     }
 
     // 本活动涉及的题目
@@ -1282,7 +1282,7 @@ export async function generateManualDocx(
   addH1("三、课堂作业设计");
   if (total === 0) {
     addBody(
-      "本课未配置课堂作业题目。如需检测学习效果，可在 QuickClass 平台的课堂中补充课堂作业活动后重新生成本手册。",
+      "本课未配置课堂作业题目。如需检测学习效果，可在 建邺智课 平台的课堂中补充课堂作业活动后重新生成本手册。",
       { italic: true, color: COLOR_HINT, indent: true }
     );
   }
@@ -1400,7 +1400,7 @@ export async function generateManualDocx(
       if (b.goal) addLabelBody("【活动目标】", b.goal);
       if (b.content) addMultilineBody("【活动内容】", b.content);
       if (b.quickclass_guide) {
-        addOperationsBlock("▶ 操作要点（QuickClass）", b.quickclass_guide);
+        addOperationsBlock("▶ 操作要点（建邺智课）", b.quickclass_guide);
       }
       if (bi < backup.length - 1) addDots();
     });
@@ -1409,7 +1409,7 @@ export async function generateManualDocx(
 
   // 末尾说明
   addParagraph(
-    "说明：本教学手册由 QuickClass 课堂 JSON 自动生成，教学目标按学科核心素养描写，教学流程依据课堂中配置的四类活动逐条生成，教师可根据实际学情灵活调整。",
+    "说明：本教学手册由 建邺智课 课堂 JSON 自动生成，教学目标按学科核心素养描写，教学流程依据课堂中配置的四类活动逐条生成，教师可根据实际学情灵活调整。",
     {
       size: SMALL_SIZE,
       italic: true,
@@ -1437,7 +1437,7 @@ export async function generateManualDocx(
   });
 
   const docxDoc = new Document({
-    creator: "QuickClass",
+    creator: "建邺智课",
     title: coverTitle,
     sections: [
       {

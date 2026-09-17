@@ -3,7 +3,7 @@ import "tdesign-react/es/style/index.css";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "QuickClass - AI 智能体学习平台",
+  title: "建邺智课 - AI 智能体学习平台",
   description: "基于 AI 智能体的项目化学习平台",
 };
 

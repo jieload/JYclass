@@ -384,13 +384,13 @@ async function main() {
   if (!teacher) {
     teacher = await prisma.user.create({
       data: {
-        email: "teacher@quickclass.com",
+        email: "teacher@jianye.com",
         password: hashedPassword,
         name: "管老师",
         role: "TEACHER",
       },
     });
-    console.log("创建教师: teacher@quickclass.com");
+    console.log("创建教师: teacher@jianye.com");
   } else {
     teacher = await prisma.user.update({
       where: { id: teacher.id },
@@ -411,7 +411,7 @@ async function main() {
   console.log("任务分配:", await prisma.taskAssignment.count());
 
   console.log("\n数据同步完成！");
-  console.log("登录信息：teacher@quickclass.com / 123456");
+  console.log("登录信息：teacher@jianye.com / 123456");
 }
 
 // 仅当直接执行时（npm run db:seed）运行 main()，被导入时不运行

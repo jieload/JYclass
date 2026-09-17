@@ -187,7 +187,7 @@ function isLikelyOfficial(p: ParsedReference): boolean {
 
 const CROSSREF_HEADERS = {
   "User-Agent":
-    "QuickClass-ResearchVerifier/1.0 (mailto:support@quickclass.local)",
+    "JianyeClass-ResearchVerifier/1.0 (mailto:support@quickclass.local)",
   Accept: "application/json",
 };
 

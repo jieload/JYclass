@@ -3,34 +3,6 @@ import { prisma } from "@/lib/prisma";
 import { createToken } from "@/lib/auth";
 import bcrypt from "bcryptjs";
 
-const ANALYTICS_URL = process.env.NEXT_PUBLIC_ANALYTICS_URL || "http://www.maoyouhui.org/api/active";
-
-async function reportLogin(user: { name: string; phone: string; email: string | null; school: string | null }) {
-  if (!ANALYTICS_URL) return;
-  try {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), 5000);
-    await fetch(ANALYTICS_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        deviceId: `server-${user.phone}`,
-        timestamp: new Date().toISOString(),
-        version: "0.1.0",
-        schoolName: user.school || "未设置",
-        teacherName: user.name || "未知",
-        phone: user.phone || "",
-        email: user.email || "",
-        action: "login",
-      }),
-      signal: controller.signal,
-    });
-    clearTimeout(timer);
-  } catch {
-    // 静默处理
-  }
-}
-
 export async function POST(req: NextRequest) {
   try {
     const { phone, password } = await req.json();
@@ -67,8 +39,7 @@ export async function POST(req: NextRequest) {
       name: user.name,
     });
 
-    // 服务端上报（不阻塞响应）
-    reportLogin({ name: user.name, phone: user.phone || "", email: user.email, school: user.school });
+    // 登录仅在本地网络使用，不向任何外部服务器上报
 
     return NextResponse.json({
       token,

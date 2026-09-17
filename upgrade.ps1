@@ -1,4 +1,4 @@
-# QuickClass 升级脚本 (PowerShell)
+# 建邺智课 升级脚本 (PowerShell)
 # 用法: .\upgrade.ps1 -ZipPath "C:\Downloads\quickclass-test-v20260721.zip"
 
 param(
@@ -7,7 +7,7 @@ param(
 )
 
 Write-Host "==========================================" -ForegroundColor Cyan
-Write-Host "  QuickClass 升级工具 (PowerShell)" -ForegroundColor Cyan
+Write-Host "  建邺智课 升级工具 (PowerShell)" -ForegroundColor Cyan
 Write-Host "==========================================" -ForegroundColor Cyan
 Write-Host ""
 

@@ -102,7 +102,7 @@ export default function StudentLayout({
       {/* 顶部导航栏 */}
       <Header className="bg-white border-b border-gray-200 px-6 flex items-center justify-between h-14" style={{ height: "56px" }}>
         <div className="flex items-center gap-6">
-          <h2 className="text-lg font-bold text-[#00A870] whitespace-nowrap">QuickClass Agent</h2>
+          <h2 className="text-lg font-bold text-[#00A870] whitespace-nowrap">建邺智课</h2>
           <nav className="flex items-center gap-1">
             {navItems.map((item) => {
               const isActive = pathname === item.key;

@@ -151,12 +151,12 @@ export default function RegisterForm() {
   };
 
   const handleDownloadKey = () => {
-    const content = `QuickClass 密码恢复密钥\n手机号: ${phoneForKey}\n密钥: ${recoveryKey}\n\n请妥善保管此文件，用于忘记密码时恢复。`;
+    const content = `建邺智课 密码恢复密钥\n手机号: ${phoneForKey}\n密钥: ${recoveryKey}\n\n请妥善保管此文件，用于忘记密码时恢复。`;
     const blob = new Blob([content], { type: "text/plain" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `quickclass-recovery-key-${Date.now()}.txt`;
+    a.download = `jianye-class-recovery-key-${Date.now()}.txt`;
     a.click();
     URL.revokeObjectURL(url);
   };
@@ -171,11 +171,11 @@ export default function RegisterForm() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#0052D9] to-[#00A870] flex items-center justify-center py-6">
       <div className="bg-white rounded-2xl shadow-xl p-8 w-full max-w-md">
-        <p className="text-center text-gray-400 text-xs mb-2">觉课智能体</p>
+        <p className="text-center text-gray-400 text-xs mb-2">建邺智课</p>
         <h1 className="text-xl font-bold text-center mb-1 text-[#1A1A1A]">
-          {showImport ? "导入已有账号" : "觉课智能体用户配置"}
+          {showImport ? "导入已有账号" : "建邺智课用户配置"}
         </h1>
-        <p className="text-center text-gray-400 text-xs mb-5">QuickClass Agent: Student-centric, Class-focused.</p>
+        <p className="text-center text-gray-400 text-xs mb-5">建邺智课 · 面向课堂、以学生为中心的 AI 教学智能体</p>
 
         {!showImport ? (
           <div className="space-y-2.5">

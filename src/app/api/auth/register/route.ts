@@ -31,11 +31,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // TODO: 检查资源广场网站是否已有此手机号注册
-    // const externalCheck = await fetch("http://www.maoyouhui.org/api/check-phone", {...});
-    // if (externalCheck.ok && externalCheck.data.exists) {
-    //   return NextResponse.json({ error: "该手机号已在资源广场注册，请使用原账号登录" }, { status: 409 });
-    // }
+    // 本系统仅在本地网络使用，不校验、不同步任何外部账号
 
     const hashedPassword = await bcrypt.hash(password, 10);
     let recoveryAnswerHash = null;
@@ -66,8 +62,7 @@ export async function POST(req: NextRequest) {
       },
     });
 
-    // TODO: 同步到资源广场网站
-    // await fetch("http://www.maoyouhui.org/api/sync-user", {...});
+    // 本系统仅在本地网络使用，不同步外部账号
 
     // 异步填充演示数据（不阻塞 token 返回）
     // 仅第一个教师注册时执行（注册路由已限定本地部署仅一个教师账号）

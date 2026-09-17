@@ -2836,7 +2836,7 @@ export default function TeacherTasksPage() {
                                 }
                                 const filename = data._filename || `task_export_${new Date().toISOString().split("T")[0]}.json`;
                                 const { _filename, ...cleanData } = data;
-                                const commentLine = "// 这个json数据仅用于由常州管老师和他的AI助手协作开发的教学智能体（QuickClass Agent）。\n";
+                                const commentLine = "// 这个json数据仅用于由常州管老师和他的AI助手协作开发的教学智能体（建邺智课）。\n";
                                 const jsonStr = commentLine + JSON.stringify(cleanData, null, 2);
                                 const uri = "data:application/json;charset=utf-8," + encodeURIComponent(jsonStr);
                                 const a = document.createElement("a");

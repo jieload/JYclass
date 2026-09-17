@@ -1,6 +1,6 @@
 #!/bin/bash
-# QuickClass 启动脚本 (macOS/Linux)
-# QuickClass 启动器 v2026.09.03
+# 建邺智课 启动脚本 (macOS/Linux)
+# 建邺智课 启动器 v2026.09.03
 
 set -e
 
@@ -8,7 +8,7 @@ cd "$(dirname "$0")"
 export DATABASE_URL="file:./dev.db"
 
 echo "========================================"
-echo "  QuickClass 启动器 v2026.09.03"
+echo "  建邺智课 启动器 v2026.09.03"
 echo "  使用指南见 使用指南.md"
 echo "========================================"
 

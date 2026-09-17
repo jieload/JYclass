@@ -1,7 +1,7 @@
 import { SignJWT, jwtVerify } from "jose";
 
 const secret = new TextEncoder().encode(
-  process.env.NEXTAUTH_SECRET || "quickclass-secret-key-2026"
+  process.env.NEXTAUTH_SECRET || "jianye-class-secret-key-2026"
 );
 
 export async function createToken(payload: Record<string, unknown>) {

@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 /**
- * QuickClass 发布打包脚本
+ * 建邺智课 发布打包脚本
  * 用法: node scripts/pack-release.mjs
  * 功能:
  *   1. 生成 start.bat / start.sh / stop.sh
  *   2. 同步到跨平台安装包目录
- *   3. 自动提交并推送 quickclass-release 仓库
+ *   3. 自动提交并推送 建邺智课 仓库
  *
  * 注意：此脚本不打包 zip，用户从 Gitee 仓库页下载 ZIP
  */
@@ -31,14 +31,14 @@ if (!version && existsSync(join(ROOT, 'VERSION.md'))) {
 if (!version) version = 'unknown';
 
 console.log('==========================================');
-console.log(`  QuickClass 发布打包`);
+console.log(`  建邺智课 发布打包`);
 console.log(`  ${version} - ${changelog}`);
 console.log('==========================================\n');
 
 // 检查跨平台安装包目录是否存在
 if (!existsSync(RELEASE_DIR)) {
   console.error(`[错误] 跨平台安装包目录不存在: ${RELEASE_DIR}`);
-  console.error('请确保该目录存在（即 quickclass-release 仓库的工作目录）');
+  console.error('请确保该目录存在（即 建邺智课 仓库的工作目录）');
   process.exit(1);
 }
 
@@ -61,7 +61,7 @@ cd /d "%~dp0"\r
 set "DATABASE_URL=file:./dev.db"\r
 \r
 echo ========================================\r
-echo   QuickClass 启动器 ${version}\r
+echo   建邺智课 启动器 ${version}\r
 echo   使用指南见 使用指南.md\r
 echo ========================================\r
 \r
@@ -166,8 +166,8 @@ console.log('  start.bat 已生成（UTF-8 + CRLF，chcp 65001 保证中文显�
 console.log('[2/5] 生成 start.sh...');
 
 const startSh = `#!/bin/bash
-# QuickClass 启动脚本 (macOS/Linux)
-# QuickClass 启动器 ${version}
+# 建邺智课 启动脚本 (macOS/Linux)
+# 建邺智课 启动器 ${version}
 
 set -e
 
@@ -175,7 +175,7 @@ cd "$(dirname "$0")"
 export DATABASE_URL="file:./dev.db"
 
 echo "========================================"
-echo "  QuickClass 启动器 ${version}"
+echo "  建邺智课 启动器 ${version}"
 echo "  使用指南见 使用指南.md"
 echo "========================================"
 
@@ -267,9 +267,9 @@ const stopSh = `#!/bin/bash
 PID=$(lsof -ti:3000 2>/dev/null)
 if [ -n "$PID" ]; then
     kill -9 $PID
-    echo "QuickClass 已停止"
+    echo "建邺智课 已停止"
 else
-    echo "未发现运行中的 QuickClass"
+    echo "未发现运行中的 建邺智课"
 fi
 `;
 

@@ -32,7 +32,7 @@ export interface RealReferenceCandidate {
 
 const CROSSREF_HEADERS = {
   "User-Agent":
-    "QuickClass-ReferenceFetcher/1.0 (mailto:support@quickclass.local)",
+    "JianyeClass-ReferenceFetcher/1.0 (mailto:support@quickclass.local)",
   Accept: "application/json",
 };
 

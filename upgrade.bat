@@ -3,7 +3,7 @@ chcp 65001 >nul
 setlocal enabledelayedexpansion
 
 echo ==========================================
-echo   QuickClass 升级工具 (Windows)
+echo   建邺智课 升级工具 (Windows)
 echo ==========================================
 echo.
 

@@ -47,7 +47,7 @@ export default function StudentLoginPage() {
           学生入口
         </h1>
         <p className="text-center text-gray-500 mb-8">
-          QuickClass Agent
+          建邺智课
         </p>
 
         <Form onSubmit={handleSubmit}>

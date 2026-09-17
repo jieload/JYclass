@@ -1,9 +1,9 @@
 #!/bin/bash
-# QuickClass 打包脚本 (Mac/Linux)
+# 建邺智课 打包脚本 (Mac/Linux)
 # 用法: bash scripts/pack-dist.sh
 
 echo "===================================="
-echo "  QuickClass 打包脚本"
+echo "  建邺智课 打包脚本"
 echo "===================================="
 echo ""
 
@@ -42,7 +42,7 @@ cp next.config.mjs dist/
 cat > dist/run.sh << 'SCRIPT'
 #!/bin/bash
 echo "===================================="
-echo "  QuickClass 启动器"
+echo "  建邺智课 启动器"
 echo "===================================="
 echo ""
 
@@ -71,7 +71,7 @@ SCRIPT
 chmod +x dist/run.sh
 
 echo "[3/3] 打包成 zip..."
-cd dist && zip -r ../quickclass-dist.zip . -x "node_modules/.cache/*" > /dev/null 2>&1 && cd ..
+cd dist && zip -r ../jianye-class-dist.zip . -x "node_modules/.cache/*" > /dev/null 2>&1 && cd ..
 
 echo ""
 echo "===================================="
@@ -80,10 +80,10 @@ echo "===================================="
 echo ""
 echo "  产物："
 echo "    dist/                 - 分发目录"
-echo "    quickclass-dist.zip   - 压缩包"
+echo "    jianye-class-dist.zip   - 压缩包"
 echo ""
 echo "  使用方式（目标电脑需要安装 Node.js 18+）："
-echo "    1. 解压 quickclass-dist.zip 到任意目录"
+echo "    1. 解压 jianye-class-dist.zip 到任意目录"
 echo "    2. 进入解压后的目录"
 echo "    3. 运行 run.sh（Mac/Linux）或 run.bat（Windows）"
 echo ""

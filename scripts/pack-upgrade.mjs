@@ -65,7 +65,7 @@ cd "$(dirname "$0")"
 export DATABASE_URL="file:./dev.db"
 
 echo "=========================================="
-echo "   QuickClass 启动器 ${version}"
+echo "   建邺智课 启动器 ${version}"
 echo "  ${changelog}"
 echo "=========================================="
 echo ""
@@ -151,7 +151,7 @@ cd /d "%~dp0"\r
 set "DATABASE_URL=file:./dev.db"\r
 \r
 echo ========================================\r
-echo   QuickClass 启动器 ${version}\r
+echo   建邺智课 启动器 ${version}\r
 echo   更新日志见 quickstart.txt\r
 echo ========================================\r
 \r
@@ -239,15 +239,15 @@ fs.writeFileSync(path.join(tmpDir, "stop.sh"), `#!/bin/bash
 PID=$(lsof -ti:3000 2>/dev/null)
 if [ -n "$PID" ]; then
     kill -9 $PID
-    echo "QuickClass 已停止"
+    echo "建邺智课 已停止"
 else
-    echo "未发现运行中的 QuickClass"
+    echo "未发现运行中的 建邺智课"
 fi
 `, { mode: 0o755 });
 
 // --- 快速上手.txt ---
 const quickstart = `==========================================
-   QuickClass 测试版 ${version}
+   建邺智课 测试版 ${version}
    ${changelog}
 ==========================================
 
@@ -326,8 +326,8 @@ console.log(`   大小: ${sizeMB} MB`);
 console.log("");
 console.log("📖 使用方式：");
 console.log("   1. 将升级包分发给用户");
-console.log("   2. 用户进入 QuickClass → 系统设置 → 系统升级");
+console.log("   2. 用户进入 建邺智课 → 系统设置 → 系统升级");
 console.log("   3. 上传此 zip 文件");
-console.log("   4. 重启 QuickClass 服务");
+console.log("   4. 重启 建邺智课 服务");
 console.log("   5. 启动脚本会自动完成升级（数据库保留）");
 console.log("");

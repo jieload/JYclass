@@ -742,7 +742,7 @@ export async function generateProposalDocxFromTemplate(
     children: [
       new Paragraph({
         children: [new TextRun({
-          text: "本文档由QuickClass 根据真实教学数据提炼，请根据教育部教师队伍建设专家指导委员会正式发布《教师生成式人工智能应用指引》规范、科学应用，禁止用于违反学术伦理的研究。",
+          text: "本文档由建邺智课 根据真实教学数据提炼，请根据教育部教师队伍建设专家指导委员会正式发布《教师生成式人工智能应用指引》规范、科学应用，禁止用于违反学术伦理的研究。",
           font: { eastAsia: "仿宋", ascii: "Times New Roman" },
           size: 16,
           color: "999999",
@@ -764,7 +764,7 @@ export async function generateProposalDocxFromTemplate(
 
   // ── 组装文档 ──
   const docxDoc = new Document({
-    creator: "QuickClass 教研宝",
+    creator: "建邺智课 教研宝",
     title: doc.title,
     sections: [{
       properties: {

@@ -8,7 +8,7 @@ export async function GET() {
 
     return NextResponse.json({
       version,
-      name: "QuickClass",
+      name: "建邺智课",
       changelog,
       buildTime: process.env.BUILD_TIME || new Date().toISOString(),
       node: process.version,

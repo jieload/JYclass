@@ -8,7 +8,7 @@ const path = require('path');
 const { execSync } = require('child_process');
 
 const DIST_DIR = 'dist';
-const PROJECT_NAME = 'quickclass';
+const PROJECT_NAME = 'jianye-class';
 
 console.log('📦 开始打包...\n');
 
@@ -57,7 +57,7 @@ dirsToCopy.forEach(dir => {
 // 4. 创建 Windows 启动脚本
 fs.writeFileSync(path.join(DIST_DIR, 'start.bat'), `@echo off
 set NODE_ENV=production
-echo Starting QuickClass...
+echo Starting 建邺智课...
 npm start
 `);
 
@@ -70,13 +70,13 @@ pause
 // 5. 创建 Linux/Mac 启动脚本
 fs.writeFileSync(path.join(DIST_DIR, 'start.sh'), `#!/bin/bash
 export NODE_ENV=production
-echo "Starting QuickClass..."
+echo "Starting 建邺智课..."
 npm start
 `);
 fs.chmodSync(path.join(DIST_DIR, 'start.sh'), '0o755');
 
 // 6. 创建 README
-fs.writeFileSync(path.join(DIST_DIR, 'README.txt'), `QuickClass 分发包
+fs.writeFileSync(path.join(DIST_DIR, 'README.txt'), `建邺智课 分发包
 ===================
 
 使用方法：

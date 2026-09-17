@@ -113,7 +113,7 @@ export default function ForgotPasswordPage() {
         <h1 className="text-2xl font-bold text-center mb-2 text-[#1A1A1A]">
           忘记密码
         </h1>
-        <p className="text-center text-gray-500 mb-8">QuickClass Agent: Student-centric, Class-focused.</p>
+        <p className="text-center text-gray-500 mb-8">建邺智课 · 面向课堂、以学生为中心的 AI 教学智能体</p>
 
         {step === "input" && (
           <>
